@@ -30,19 +30,19 @@ Node* Heap::AddNode(Node* node, int value)
 	//자식 둘
 	else
 	{
-		//높이같고 오른쪽이 가득 참
+		//높이같고 오른쪽이 비어있는가
 		if (Squence(node) == 0 && Check(node->mRight))
 			return AddNode(node->mRight, value);
 
-		//자식들의 높이가 같을때 왼쪽추가
+		//높이 같을때 왼쪽추가
 		if (Squence(node) == 0)
 			return AddNode(node->mLeft, value);
 
-		//왼쪽자식이 크고 왼쪽이 가득 참
+		//왼쪽 높이 크고 왼쪽이 비어있는가
 		if (Squence(node) == 1 && Check(node->mLeft))
 			return AddNode(node->mLeft, value);
 
-		//왼쪽자식이 클때
+		//왼쪽 높이 클때
 		if (Squence(node) == 1)
 			return AddNode(node->mRight, value);
 	}
